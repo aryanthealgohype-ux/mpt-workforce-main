@@ -4,74 +4,41 @@ import { useState, useEffect, useCallback } from 'react';
 
 const testimonials = [
   {
-    name: 'Monu Chauhan',
-    role: 'Founder & CEO',
-    company: 'Manu Bhoomi LLP',
-    gender: 'male',
-    text: 'Their market understanding and professional coordination helped us close key hiring positions efficiently. A reliable recruitment partner.',
+    name: 'Rajesh Sharma',
+    role: 'HR Director, Tech Corp',
+    text: 'MPT Workforce has been an exceptional partner for our staffing needs. Their team consistently delivers skilled professionals who integrate seamlessly into our projects.',
+    initials: 'RS',
+    color: 'bg-blue-500',
   },
   {
-    name: 'Tushar Chaudhary',
-    role: 'Founder',
-    company: 'Hirits Pvt. Company',
-    gender: 'male',
-    text: 'MPT Workforce has been a dependable recruitment partner for Hirits Company, consistently delivering quality candidates with professionalism and speed.',
+    name: 'Priya Mehta',
+    role: 'Operations Manager, RetailMax',
+    text: 'The event management team at MPT is outstanding. They handled our product launch flawlessly, from planning to execution. Highly recommended!',
+    initials: 'PM',
+    color: 'bg-rose-500',
   },
   {
-    name: 'Ms. Surabhi Loshali',
-    role: 'HR Manager',
-    company: 'Ather Company',
-    gender: 'female',
-    text: 'MPT Workforce has consistently supported Ather Company with high-quality talent acquisition, demonstrating strong coordination, professionalism, and a deep understanding of our hiring needs.',
+    name: 'Amit Verma',
+    role: 'CEO, BuildRight Industries',
+    text: 'We have been working with MPT for over two years now. Their workforce solutions have helped us scale operations efficiently while maintaining quality.',
+    initials: 'AV',
+    color: 'bg-emerald-600',
   },
   {
-    name: 'Mr. Raghav Aggarwal',
-    role: 'Director',
-    company: 'ARTOA.97 Autotech and Metalworks Pvt. Ltd.',
-    gender: 'male',
-    text: 'MPT Workforce has been instrumental in supporting our hiring needs with skilled and reliable candidates, demonstrating professionalism and strong industry understanding.',
+    name: 'Sneha Kapoor',
+    role: 'Marketing Head, BrandVibe',
+    text: 'MPT organized our brand activation campaign across multiple cities. Their coordination, professionalism, and attention to detail were truly impressive.',
+    initials: 'SK',
+    color: 'bg-purple-500',
   },
   {
-    name: 'Anjana Tiwari',
-    role: 'HR Manager',
-    company: 'ATH Support Services Pvt. Ltd.',
-    gender: 'female',
-    text: 'Their coordination, screening process, and workforce management have significantly strengthened our project execution.',
-  },
-  {
-    name: 'Ms. Aishwarya Verma',
-    role: 'Director',
-    company: 'Platinox Consultants Pvt. Ltd.',
-    gender: 'female',
-    text: 'MPT Workforce has been a strategic recruitment partner for Platinox Consultants, consistently delivering high-quality talent with professionalism and deep industry insight.',
-  },
-  {
-    name: 'Vaibhav Jain',
-    role: 'Founder',
-    company: 'GSI Handicrafts Co.',
-    gender: 'male',
-    text: 'MPT Workforce has been a trusted partner for GSI Handover Company, providing efficient manpower solutions and quality candidates that perfectly matched our operational needs.',
-  },
-  {
-    name: 'Mr. Atul Mangal',
-    role: 'Chairman',
-    company: 'Mangalmay Institute',
-    gender: 'male',
-    text: 'MPT Workforce has consistently supported Mangalmay Institute with impactful seminars, strong placement drives, and quality talent connections, earning appreciation from our leadership.',
-  },
-  {
-    name: 'Purvi Mishra',
-    role: 'Placement Manager',
-    company: 'IPEM College',
-    gender: 'female',
-    text: 'MPT Workforce has significantly strengthened our placement initiatives by bringing reputed companies to campus and creating valuable career opportunities for our students.',
+    name: 'Vikram Singh',
+    role: 'Plant Manager, IndoSteel',
+    text: 'Reliable, professional, and always on time. MPT Workforce provides us with dependable manpower solutions that keep our manufacturing operations running smoothly.',
+    initials: 'VS',
+    color: 'bg-amber-600',
   },
 ];
-
-const placeholderImages = {
-  male: '/images/boy-placeholder.svg',
-  female: '/images/girl-placeholder.svg',
-};
 
 const TestimonialsSection = () => {
   const { ref, isVisible } = useScrollAnimation();
@@ -117,20 +84,15 @@ const TestimonialsSection = () => {
               "{testimonials[current].text}"
             </p>
             <div className="border-t border-border pt-6 flex flex-col items-center gap-3">
-              <div className="w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden border border-border shadow-md bg-muted">
-                <img
-                  src={testimonials[current].gender === 'female' ? placeholderImages.female : placeholderImages.male}
-                  alt={testimonials[current].name}
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                />
+              <div className={`w-14 h-14 rounded-full ${testimonials[current].color} flex items-center justify-center text-white font-bold text-lg shadow-md`}>
+                {testimonials[current].initials}
               </div>
               <div>
                 <h4 className="text-lg font-serif font-bold text-foreground">
                   {testimonials[current].name}
                 </h4>
                 <p className="text-accent font-medium text-sm mt-1">
-                  {testimonials[current].role}, {testimonials[current].company}
+                  {testimonials[current].role}
                 </p>
               </div>
             </div>
