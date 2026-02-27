@@ -7,64 +7,70 @@ const testimonials = [
     name: 'Monu Chauhan',
     role: 'Founder & CEO',
     company: 'Manu Bhoomi LLP',
+    gender: 'male',
     text: 'Their market understanding and professional coordination helped us close key hiring positions efficiently. A reliable recruitment partner.',
   },
   {
     name: 'Tushar Chaudhary',
     role: 'Founder',
     company: 'Hirits Pvt. Company',
+    gender: 'male',
     text: 'MPT Workforce has been a dependable recruitment partner for Hirits Company, consistently delivering quality candidates with professionalism and speed.',
   },
   {
     name: 'Ms. Surabhi Loshali',
     role: 'HR Manager',
     company: 'Ather Company',
+    gender: 'female',
     text: 'MPT Workforce has consistently supported Ather Company with high-quality talent acquisition, demonstrating strong coordination, professionalism, and a deep understanding of our hiring needs.',
   },
   {
     name: 'Mr. Raghav Aggarwal',
     role: 'Director',
     company: 'ARTOA.97 Autotech and Metalworks Pvt. Ltd.',
+    gender: 'male',
     text: 'MPT Workforce has been instrumental in supporting our hiring needs with skilled and reliable candidates, demonstrating professionalism and strong industry understanding.',
   },
   {
     name: 'Anjana Tiwari',
     role: 'HR Manager',
     company: 'ATH Support Services Pvt. Ltd.',
+    gender: 'female',
     text: 'Their coordination, screening process, and workforce management have significantly strengthened our project execution.',
   },
   {
     name: 'Ms. Aishwarya Verma',
     role: 'Director',
     company: 'Platinox Consultants Pvt. Ltd.',
+    gender: 'female',
     text: 'MPT Workforce has been a strategic recruitment partner for Platinox Consultants, consistently delivering high-quality talent with professionalism and deep industry insight.',
   },
   {
     name: 'Vaibhav Jain',
     role: 'Founder',
     company: 'GSI Handicrafts Co.',
+    gender: 'male',
     text: 'MPT Workforce has been a trusted partner for GSI Handover Company, providing efficient manpower solutions and quality candidates that perfectly matched our operational needs.',
   },
   {
     name: 'Mr. Atul Mangal',
     role: 'Chairman',
     company: 'Mangalmay Institute',
+    gender: 'male',
     text: 'MPT Workforce has consistently supported Mangalmay Institute with impactful seminars, strong placement drives, and quality talent connections, earning appreciation from our leadership.',
   },
   {
     name: 'Purvi Mishra',
     role: 'Placement Manager',
     company: 'IPEM College',
+    gender: 'female',
     text: 'MPT Workforce has significantly strengthened our placement initiatives by bringing reputed companies to campus and creating valuable career opportunities for our students.',
   },
 ];
 
-const getInitials = (name: string) => {
-  const cleaned = name.replace(/^(Mr\.|Ms\.)\s+/i, '').trim();
-  const parts = cleaned.split(/\s+/).filter(Boolean);
-  const first = parts[0]?.[0] ?? '';
-  const last = parts.length > 1 ? parts[parts.length - 1][0] : '';
-  return `${first}${last}`.toUpperCase();
+const placeholderImages = {
+  male: '/images/boy-placeholder.svg',
+  female: '/images/girl-placeholder.svg',
 };
 
 const TestimonialsSection = () => {
@@ -111,8 +117,13 @@ const TestimonialsSection = () => {
               "{testimonials[current].text}"
             </p>
             <div className="border-t border-border pt-6 flex flex-col items-center gap-3">
-              <div className="w-16 h-16 md:w-20 md:h-20 rounded-full border border-border shadow-md bg-accent/10 text-accent flex items-center justify-center font-bold text-lg">
-                {getInitials(testimonials[current].name)}
+              <div className="w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden border border-border shadow-md bg-muted">
+                <img
+                  src={testimonials[current].gender === 'female' ? placeholderImages.female : placeholderImages.male}
+                  alt={testimonials[current].name}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
               </div>
               <div>
                 <h4 className="text-lg font-serif font-bold text-foreground">
